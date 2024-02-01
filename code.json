@@ -1,0 +1,131 @@
+{
+    "errors": [],
+    "interfile_languages_used": [
+        "Go"
+    ],
+    "paths": {
+        "scanned": [
+            "go.mod",
+            "go.sum",
+            "idor.go"
+        ]
+    },
+    "results": [
+        {
+            "check_id": "r2c_david.test-go-escape-signature",
+            "end": {
+                "col": 53,
+                "line": 129,
+                "offset": 3096
+            },
+            "extra": {
+                "engine_kind": "PRO",
+                "fingerprint": "b4a8562d3681a29d5f4219b799f93e29e8689a8f6b37c979fa395ca8738227b4e31598774711dc627f21ab8199b032a3ae7fd8f6dba436a82c098e8ab7294411_0",
+                "is_ignored": false,
+                "lines": "\t\tsign := HTMLEscapeString(r.FormValue(\"signature\"))",
+                "message": "This rule is meant for testing and will fire anytime we're escaping the 'signature' form value",
+                "metadata": {
+                    "dev.semgrep.actions": [
+                        "monitor"
+                    ],
+                    "semgrep.dev": {
+                        "rule": {
+                            "origin": "custom",
+                            "rule_id": "DbU6kKO",
+                            "url": "https://semgrep.dev/playground/r/K3Tz2eJ/r2c_david.test-go-escape-signature",
+                            "version_id": "K3Tz2eJ"
+                        }
+                    },
+                    "semgrep.policy": {
+                        "id": 53434,
+                        "name": "Rule Board - Audit column",
+                        "slug": "rule-board-audit"
+                    },
+                    "shortlink": "https://sg.run/kxpke",
+                    "source": "https://semgrep.dev/r/r2c_david.test-go-escape-signature"
+                },
+                "metavars": {},
+                "severity": "WARNING",
+                "validation_state": "NO_VALIDATOR"
+            },
+            "path": "idor.go",
+            "start": {
+                "col": 11,
+                "line": 129,
+                "offset": 3054
+            }
+        },
+        {
+            "check_id": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+            "end": {
+                "col": 21,
+                "line": 164,
+                "offset": 3919
+            },
+            "extra": {
+                "engine_kind": "PRO",
+                "fingerprint": "1edb2ae8823c1ba4f1d78c5ab7af9229a31386975cae8601ff6eb7ab8e639aec25659e6dfcb02ff3a9ed0070779669d679d8042b302d7b69d4e3ae53f2e3cac8_0",
+                "is_ignored": false,
+                "lines": "\thasher := md5.New()",
+                "message": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.",
+                "metadata": {
+                    "category": "security",
+                    "confidence": "MEDIUM",
+                    "cwe": [
+                        "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+                    ],
+                    "dev.semgrep.actions": [
+                        "comment"
+                    ],
+                    "impact": "MEDIUM",
+                    "license": "Commons Clause License Condition v1.0[LGPL-2.1-only]",
+                    "likelihood": "MEDIUM",
+                    "owasp": [
+                        "A03:2017 - Sensitive Data Exposure",
+                        "A02:2021 - Cryptographic Failures"
+                    ],
+                    "references": [
+                        "https://owasp.org/Top10/A02_2021-Cryptographic_Failures"
+                    ],
+                    "semgrep.dev": {
+                        "rule": {
+                            "origin": "community",
+                            "rule_id": "x8Un6q",
+                            "url": "https://semgrep.dev/playground/r/2KTzro0/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                            "version_id": "2KTzro0"
+                        }
+                    },
+                    "semgrep.policy": {
+                        "id": 53432,
+                        "name": "Rule Board - PR Comments column",
+                        "slug": "rule-board-pr-comments"
+                    },
+                    "semgrep.url": "https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                    "shortlink": "https://sg.run/2xB5",
+                    "source": "https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                    "source-rule-url": "https://github.com/securego/gosec#available-rules",
+                    "subcategory": [
+                        "vuln"
+                    ],
+                    "technology": [
+                        "go"
+                    ],
+                    "vulnerability_class": [
+                        "Cryptographic Issues"
+                    ]
+                },
+                "metavars": {},
+                "severity": "WARNING",
+                "validation_state": "NO_VALIDATOR"
+            },
+            "path": "idor.go",
+            "start": {
+                "col": 12,
+                "line": 164,
+                "offset": 3910
+            }
+        }
+    ],
+    "skipped_rules": [],
+    "version": "1.59.0"
+}
