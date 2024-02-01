@@ -29,7 +29,7 @@ func (self *Self) SetSession(w http.ResponseWriter, r *http.Request, data map[st
 		Path:     "/",
 		MaxAge:   3600,
 		HttpOnly: false, //set to false for xss :)
-        Secure: false,
+        Secure: true,
 	}
 
 	session.Values["govwa_session"] = true
