@@ -1,0 +1,303 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "b4a8562d3681a29d5f4219b799f93e29e8689a8f6b37c979fa395ca8738227b4e31598774711dc627f21ab8199b032a3ae7fd8f6dba436a82c098e8ab7294411_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "idor.go",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 53,
+                  "endLine": 129,
+                  "snippet": {
+                    "text": "\t\tsign := HTMLEscapeString(r.FormValue(\"signature\"))"
+                  },
+                  "startColumn": 11,
+                  "startLine": 129
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "This rule is meant for testing and will fire anytime we're escaping the 'signature' form value"
+          },
+          "properties": {},
+          "ruleId": "r2c_david.test-go-escape-signature"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "1edb2ae8823c1ba4f1d78c5ab7af9229a31386975cae8601ff6eb7ab8e639aec25659e6dfcb02ff3a9ed0070779669d679d8042b302d7b69d4e3ae53f2e3cac8_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "idor.go",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 21,
+                  "endLine": 164,
+                  "snippet": {
+                    "text": "\thasher := md5.New()"
+                  },
+                  "startColumn": 12,
+                  "startLine": 164
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+          },
+          "properties": {},
+          "ruleId": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "c584e2bab4cbcc745bb4d7b52c0e05869a96a99cb148958c8d1a6546db84aff5db5e7f007b9f811bf89514637397088bc92bd4133bd22cff5b6669133e0b0806_0"
+          },
+          "fixes": [
+            {
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "insecure-cookie.go"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "endColumn": 3,
+                        "endLine": 33,
+                        "startColumn": 20,
+                        "startLine": 28
+                      },
+                      "insertedContent": {
+                        "text": "\tsession.Options = &sessions.Options{\n\t\tPath:     \"/\",\n\t\tMaxAge:   3600,\n\t\tHttpOnly: true, //set to false for xss :)\n        Secure: true,\n\t}"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "description": {
+                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct.\n Autofix: Semgrep rule suggested fix"
+              }
+            }
+          ],
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "insecure-cookie.go",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 3,
+                  "endLine": 33,
+                  "snippet": {
+                    "text": "\tsession.Options = &sessions.Options{\n\t\tPath:     \"/\",\n\t\tMaxAge:   3600,\n\t\tHttpOnly: false, //set to false for xss :)\n        Secure: true,\n\t}"
+                  },
+                  "startColumn": 20,
+                  "startLine": 28
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+          },
+          "properties": {},
+          "ruleId": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "58fccddd2cb127ebd5ab4c199cedfdba23e50960262fea31cad5930aa8e7a2b42c436605c1afdd9ced08312b9346193b7d5a30d17007c6b56c59e8a50702d4d2_0"
+          },
+          "fixes": [
+            {
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "insecure-grpc.go"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "endColumn": 57,
+                        "endLine": 10,
+                        "startColumn": 18,
+                        "startLine": 10
+                      },
+                      "insertedContent": {
+                        "text": "    conn, err := grpc.Dial(address, grpc.WithTransportCredentials(credentials.NewTLS(<your_tls_config_here>)))"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "description": {
+                "text": "Found an insecure gRPC connection using 'grpc.WithInsecure()'. This creates a connection without encryption to a gRPC server. A malicious attacker could tamper with the gRPC message, which could compromise the machine. Instead, establish a secure connection with an SSL certificate using the 'grpc.WithTransportCredentials()' function. You can create a create credentials using a 'tls.Config{}' struct with 'credentials.NewTLS()'. The final fix looks like this: 'grpc.WithTransportCredentials(credentials.NewTLS(<config>))'.\n Autofix: Semgrep rule suggested fix"
+              }
+            }
+          ],
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "insecure-grpc.go",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 57,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "    conn, err := grpc.Dial(address, grpc.WithInsecure())"
+                  },
+                  "startColumn": 18,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Found an insecure gRPC connection using 'grpc.WithInsecure()'. This creates a connection without encryption to a gRPC server. A malicious attacker could tamper with the gRPC message, which could compromise the machine. Instead, establish a secure connection with an SSL certificate using the 'grpc.WithTransportCredentials()' function. You can create a create credentials using a 'tls.Config{}' struct with 'credentials.NewTLS()'. The final fix looks like this: 'grpc.WithTransportCredentials(credentials.NewTLS(<config>))'."
+          },
+          "properties": {},
+          "ruleId": "go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "Semgrep PRO",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+              },
+              "help": {
+                "markdown": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5)\n - [https://owasp.org/Top10/A02_2021-Cryptographic_Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures)\n",
+                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+              },
+              "helpUri": "https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+              "id": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+              "name": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+                  "MEDIUM CONFIDENCE",
+                  "OWASP-A02:2021 - Cryptographic Failures",
+                  "OWASP-A03:2017 - Sensitive Data Exposure",
+                  "rule-board-pr-comments",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "Found an insecure gRPC connection using 'grpc.WithInsecure()'. This creates a connection without encryption to a gRPC server. A malicious attacker could tamper with the gRPC message, which could compromise the machine. Instead, establish a secure connection with an SSL certificate using the 'grpc.WithTransportCredentials()' function. You can create a create credentials using a 'tls.Config{}' struct with 'credentials.NewTLS()'. The final fix looks like this: 'grpc.WithTransportCredentials(credentials.NewTLS(<config>))'."
+              },
+              "help": {
+                "markdown": "Found an insecure gRPC connection using 'grpc.WithInsecure()'. This creates a connection without encryption to a gRPC server. A malicious attacker could tamper with the gRPC message, which could compromise the machine. Instead, establish a secure connection with an SSL certificate using the 'grpc.WithTransportCredentials()' function. You can create a create credentials using a 'tls.Config{}' struct with 'credentials.NewTLS()'. The final fix looks like this: 'grpc.WithTransportCredentials(credentials.NewTLS(<config>))'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection)\n - [https://blog.gopheracademy.com/advent-2019/go-grps-and-tls/#connection-without-encryption](https://blog.gopheracademy.com/advent-2019/go-grps-and-tls/#connection-without-encryption)\n",
+                "text": "Found an insecure gRPC connection using 'grpc.WithInsecure()'. This creates a connection without encryption to a gRPC server. A malicious attacker could tamper with the gRPC message, which could compromise the machine. Instead, establish a secure connection with an SSL certificate using the 'grpc.WithTransportCredentials()' function. You can create a create credentials using a 'tls.Config{}' struct with 'credentials.NewTLS()'. The final fix looks like this: 'grpc.WithTransportCredentials(credentials.NewTLS(<config>))'."
+              },
+              "helpUri": "https://semgrep.dev/r/go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection",
+              "id": "go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection",
+              "name": "go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-300: Channel Accessible by Non-Endpoint",
+                  "HIGH CONFIDENCE",
+                  "OWASP-A07:2021 - Identification and Authentication Failures",
+                  "rule-board-pr-comments",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: go.grpc.security.grpc-client-insecure-connection.grpc-client-insecure-connection"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "This rule is meant for testing and will fire anytime we're escaping the 'signature' form value"
+              },
+              "help": {
+                "markdown": "This rule is meant for testing and will fire anytime we're escaping the 'signature' form value\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/r2c_david.test-go-escape-signature)\n",
+                "text": "This rule is meant for testing and will fire anytime we're escaping the 'signature' form value"
+              },
+              "helpUri": "https://semgrep.dev/r/r2c_david.test-go-escape-signature",
+              "id": "r2c_david.test-go-escape-signature",
+              "name": "r2c_david.test-go-escape-signature",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "rule-board-audit"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: r2c_david.test-go-escape-signature"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+              },
+              "help": {
+                "markdown": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69)\n",
+                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+              },
+              "helpUri": "https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+              "id": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+              "name": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag",
+                  "MEDIUM CONFIDENCE",
+                  "OWASP-A05:2021 - Security Misconfiguration",
+                  "rule-board-pr-comments",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly"
+              }
+            }
+          ],
+          "semanticVersion": "1.59.0"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
