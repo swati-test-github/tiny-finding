@@ -2049,55 +2049,58 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+                                "text": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')."
                             },
                             "help": {
-                                "markdown": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69)\n",
-                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+                                "markdown": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting').\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/orgs/-/supply-chain/advisories?q=ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8)\n - [https://nvd.nist.gov/vuln/detail/CVE-2020-28483](https://nvd.nist.gov/vuln/detail/CVE-2020-28483)\n - [https://github.com/advisories/GHSA-h395-qcrw-5vmq](https://github.com/advisories/GHSA-h395-qcrw-5vmq)\n",
+                                "text": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')."
                             },
-                            "helpUri": "https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
-                            "id": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
-                            "name": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+                            "helpUri": "https://semgrep.dev/orgs/-/supply-chain/advisories?q=ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
+                            "id": "ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
+                            "name": "ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
                             "properties": {
-                                "precision": "high",
+                                "precision": "medium",
                                 "tags": [
-                                    "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag",
-                                    "OWASP A05:2021 - Security Misconfiguration",
-                                    "MEDIUM confidence",
+                                    "CWE-1357: Reliance on Uncontrolled Component",
+                                    "CWE-113: Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
+                                    "CWE-444: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')",
+                                    "OWASP A06:2021 - Vulnerable and Outdated Components",
+                                    "LOW confidence",
                                     "security"
                                 ],
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly"
+                                "text": "Semgrep Finding: ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8"
                             }
                         },
                         {
                             "defaultConfiguration": {
-                                "level": "error"
+                                "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file."
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
                             },
                             "help": {
-                                "markdown": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/generic.secrets.security.detected-private-key.detected-private-key)\n - [https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures)\n",
-                                "text": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file."
+                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.django.security.audit.xss.template-href-var.template-href-var)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)\n - [https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#url](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#url)\n - [https://content-security-policy.com/](https://content-security-policy.com/)\n",
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
                             },
-                            "helpUri": "https://semgrep.dev/r/generic.secrets.security.detected-private-key.detected-private-key",
-                            "id": "generic.secrets.security.detected-private-key.detected-private-key",
-                            "name": "generic.secrets.security.detected-private-key.detected-private-key",
+                            "helpUri": "https://semgrep.dev/r/python.django.security.audit.xss.template-href-var.template-href-var",
+                            "id": "python.django.security.audit.xss.template-href-var.template-href-var",
+                            "name": "python.django.security.audit.xss.template-href-var.template-href-var",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
-                                    "CWE-798: Use of Hard-coded Credentials",
-                                    "OWASP A07:2021 - Identification and Authentication Failures",
+                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
+                                    "OWASP A03:2021 - Injection",
                                     "LOW confidence",
                                     "security"
                                 ],
-                                "security-severity": "8.0"
+                                "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: generic.secrets.security.detected-private-key.detected-private-key"
+                                "text": "Semgrep Finding: python.django.security.audit.xss.template-href-var.template-href-var"
                             }
                         },
                         {
@@ -2135,15 +2138,15 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header."
+                                "text": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'."
                             },
                             "help": {
-                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-href.var-in-href)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss#:~:text=javascript:%20URI](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss#:~:text=javascript:%20URI)\n - [https://github.com/pugjs/pug/issues/2952](https://github.com/pugjs/pug/issues/2952)\n",
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header."
+                                "markdown": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/vulnerability/xss/xss.go#L33](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/vulnerability/xss/xss.go#L33)\n",
+                                "text": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'."
                             },
-                            "helpUri": "https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
-                            "id": "javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
-                            "name": "javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
+                            "id": "go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
+                            "name": "go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
@@ -2156,7 +2159,7 @@
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: javascript.express.security.audit.xss.mustache.var-in-href.var-in-href"
+                                "text": "Semgrep Finding: go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type"
                             }
                         },
                         {
@@ -2164,56 +2167,28 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely."
+                                "text": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
                             },
                             "help": {
-                                "markdown": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.injection.raw-html-format.raw-html-format)\n - [https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)\n",
-                                "text": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely."
+                                "markdown": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp)\n - [https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\n",
+                                "text": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
                             },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.injection.raw-html-format.raw-html-format",
-                            "id": "go.lang.security.injection.raw-html-format.raw-html-format",
-                            "name": "go.lang.security.injection.raw-html-format.raw-html-format",
+                            "helpUri": "https://semgrep.dev/r/javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
+                            "id": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
+                            "name": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
                             "properties": {
-                                "precision": "high",
+                                "precision": "medium",
                                 "tags": [
-                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
-                                    "OWASP A03:2021 - Injection",
-                                    "MEDIUM confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.injection.raw-html-format.raw-html-format"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie."
-                            },
-                            "help": {
-                                "markdown": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/util/cookie.go](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/util/cookie.go)\n - [https://golang.org/src/net/http/cookie.go](https://golang.org/src/net/http/cookie.go)\n",
-                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
-                            "id": "go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
-                            "name": "go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag",
+                                    "CWE-1333: Inefficient Regular Expression Complexity",
                                     "OWASP A05:2021 - Security Misconfiguration",
-                                    "MEDIUM confidence",
+                                    "OWASP A06:2017 - Security Misconfiguration",
+                                    "LOW confidence",
                                     "security"
                                 ],
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly"
+                                "text": "Semgrep Finding: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp"
                             }
                         },
                         {
@@ -2221,83 +2196,15 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks"
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
                             },
                             "help": {
-                                "markdown": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.django.security.django-no-csrf-token.django-no-csrf-token)\n - [https://docs.djangoproject.com/en/4.2/howto/csrf/](https://docs.djangoproject.com/en/4.2/howto/csrf/)\n",
-                                "text": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks"
+                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.flask.security.xss.audit.template-href-var.template-href-var)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)\n - [https://content-security-policy.com/](https://content-security-policy.com/)\n",
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
                             },
-                            "helpUri": "https://semgrep.dev/r/python.django.security.django-no-csrf-token.django-no-csrf-token",
-                            "id": "python.django.security.django-no-csrf-token.django-no-csrf-token",
-                            "name": "python.django.security.django-no-csrf-token.django-no-csrf-token",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "C",
-                                    "W",
-                                    "E",
-                                    "-",
-                                    "3",
-                                    "5",
-                                    "2",
-                                    ":",
-                                    " ",
-                                    "C",
-                                    "r",
-                                    "o",
-                                    "s",
-                                    "s",
-                                    "-",
-                                    "S",
-                                    "i",
-                                    "t",
-                                    "e",
-                                    " ",
-                                    "R",
-                                    "e",
-                                    "q",
-                                    "u",
-                                    "e",
-                                    "s",
-                                    "t",
-                                    " ",
-                                    "F",
-                                    "o",
-                                    "r",
-                                    "g",
-                                    "e",
-                                    "r",
-                                    "y",
-                                    " ",
-                                    "(",
-                                    "C",
-                                    "S",
-                                    "R",
-                                    "F",
-                                    ")",
-                                    "MEDIUM confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: python.django.security.django-no-csrf-token.django-no-csrf-token"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'."
-                            },
-                            "help": {
-                                "markdown": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter)\n - [https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)\n",
-                                "text": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
-                            "id": "go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
-                            "name": "go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
+                            "helpUri": "https://semgrep.dev/r/python.flask.security.xss.audit.template-href-var.template-href-var",
+                            "id": "python.flask.security.xss.audit.template-href-var.template-href-var",
+                            "name": "python.flask.security.xss.audit.template-href-var.template-href-var",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
@@ -2310,65 +2217,7 @@
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "error"
-                            },
-                            "fullDescription": {
-                                "text": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls."
-                            },
-                            "help": {
-                                "markdown": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.sqli.gosql-sqli.gosql-sqli)\n - [https://golang.org/pkg/database/sql/](https://golang.org/pkg/database/sql/)\n",
-                                "text": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
-                            "id": "go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
-                            "name": "go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-                                    "OWASP A01:2017 - Injection",
-                                    "OWASP A03:2021 - Injection",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "8.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.sqli.gosql-sqli.gosql-sqli"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
-                            },
-                            "help": {
-                                "markdown": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5)\n - [https://owasp.org/Top10/A02_2021-Cryptographic_Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures)\n",
-                                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
-                            "id": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
-                            "name": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
-                                    "OWASP A03:2017 - Sensitive Data Exposure",
-                                    "OWASP A02:2021 - Cryptographic Failures",
-                                    "MEDIUM confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5"
+                                "text": "Semgrep Finding: python.flask.security.xss.audit.template-href-var.template-href-var"
                             }
                         },
                         {
@@ -2405,15 +2254,71 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
+                                "text": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks"
                             },
                             "help": {
-                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.django.security.audit.xss.template-href-var.template-href-var)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)\n - [https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#url](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#url)\n - [https://content-security-policy.com/](https://content-security-policy.com/)\n",
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use the 'url' template tag to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
+                                "markdown": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.django.security.django-no-csrf-token.django-no-csrf-token)\n - [https://docs.djangoproject.com/en/4.2/howto/csrf/](https://docs.djangoproject.com/en/4.2/howto/csrf/)\n",
+                                "text": "Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks"
                             },
-                            "helpUri": "https://semgrep.dev/r/python.django.security.audit.xss.template-href-var.template-href-var",
-                            "id": "python.django.security.audit.xss.template-href-var.template-href-var",
-                            "name": "python.django.security.audit.xss.template-href-var.template-href-var",
+                            "helpUri": "https://semgrep.dev/r/python.django.security.django-no-csrf-token.django-no-csrf-token",
+                            "id": "python.django.security.django-no-csrf-token.django-no-csrf-token",
+                            "name": "python.django.security.django-no-csrf-token.django-no-csrf-token",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-352: Cross-Site Request Forgery (CSRF)",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: python.django.security.django-no-csrf-token.django-no-csrf-token"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+                            },
+                            "help": {
+                                "markdown": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/html.security.plaintext-http-link.plaintext-http-link)\n - [https://cwe.mitre.org/data/definitions/319.html](https://cwe.mitre.org/data/definitions/319.html)\n",
+                                "text": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
+                            },
+                            "helpUri": "https://semgrep.dev/r/html.security.plaintext-http-link.plaintext-http-link",
+                            "id": "html.security.plaintext-http-link.plaintext-http-link",
+                            "name": "html.security.plaintext-http-link.plaintext-http-link",
+                            "properties": {
+                                "precision": "very-high",
+                                "tags": [
+                                    "CWE-319: Cleartext Transmission of Sensitive Information",
+                                    "OWASP A03:2017 - Sensitive Data Exposure",
+                                    "OWASP A02:2021 - Cryptographic Failures",
+                                    "HIGH confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: html.security.plaintext-http-link.plaintext-http-link"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'."
+                            },
+                            "help": {
+                                "markdown": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter)\n - [https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)\n",
+                                "text": "Detected directly writing or similar in 'http.ResponseWriter.write()'. This bypasses HTML escaping that prevents cross-site scripting vulnerabilities. Instead, use the 'html/template' package and render data using 'template.Execute()'."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
+                            "id": "go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
+                            "name": "go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
@@ -2426,7 +2331,346 @@
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: python.django.security.audit.xss.template-href-var.template-href-var"
+                                "text": "Semgrep Finding: go.lang.security.audit.xss.no-direct-write-to-responsewriter.no-direct-write-to-responsewriter"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data."
+                            },
+                            "help": {
+                                "markdown": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.database.string-formatted-query.string-formatted-query)\n - [https://owasp.org/Top10/A03_2021-Injection](https://owasp.org/Top10/A03_2021-Injection)\n",
+                                "text": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+                            "id": "go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+                            "name": "go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+                                    "OWASP A01:2017 - Injection",
+                                    "OWASP A03:2021 - Injection",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.lang.security.audit.database.string-formatted-query.string-formatted-query"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+                            },
+                            "help": {
+                                "markdown": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69)\n",
+                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Options struct."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+                            "id": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+                            "name": "go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag",
+                                    "OWASP A05:2021 - Security Misconfiguration",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.gorilla.security.audit.session-cookie-missing-httponly.session-cookie-missing-httponly"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct."
+                            },
+                            "help": {
+                                "markdown": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69)\n",
+                                "text": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
+                            "id": "go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
+                            "name": "go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
+                                    "OWASP A05:2021 - Security Misconfiguration",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this."
+                            },
+                            "help": {
+                                "markdown": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service)\n - [https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir](https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir)\n - [https://blog.atomist.com/security-of-docker-kubernetes/](https://blog.atomist.com/security-of-docker-kubernetes/)\n - [https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only)\n",
+                                "text": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this."
+                            },
+                            "helpUri": "https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+                            "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+                            "name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-732: Incorrect Permission Assignment for Critical Resource",
+                                    "OWASP A05:2021 - Security Misconfiguration",
+                                    "OWASP A06:2017 - Security Misconfiguration",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie."
+                            },
+                            "help": {
+                                "markdown": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/util/cookie.go](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/util/cookie.go)\n - [https://golang.org/src/net/http/cookie.go](https://golang.org/src/net/http/cookie.go)\n",
+                                "text": "A session cookie was detected without setting the 'HttpOnly' flag. The 'HttpOnly' flag for cookies instructs the browser to forbid client-side scripts from reading the cookie which mitigates XSS attacks. Set the 'HttpOnly' flag by setting 'HttpOnly' to 'true' in the Cookie."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
+                            "id": "go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
+                            "name": "go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag",
+                                    "OWASP A05:2021 - Security Misconfiguration",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.lang.security.audit.net.cookie-missing-httponly.cookie-missing-httponly"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+                            },
+                            "help": {
+                                "markdown": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5)\n - [https://owasp.org/Top10/A02_2021-Cryptographic_Failures](https://owasp.org/Top10/A02_2021-Cryptographic_Failures)\n",
+                                "text": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                            "id": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                            "name": "go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+                                    "OWASP A03:2017 - Sensitive Data Exposure",
+                                    "OWASP A02:2021 - Cryptographic Failures",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "note"
+                            },
+                            "fullDescription": {
+                                "text": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`"
+                            },
+                            "help": {
+                                "markdown": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned)\n - [https://stackoverflow.com/a/33511811/4965](https://stackoverflow.com/a/33511811/4965)\n",
+                                "text": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`"
+                            },
+                            "helpUri": "https://semgrep.dev/r/dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
+                            "id": "dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
+                            "name": "dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "best-practice"
+                                ],
+                                "security-severity": "3.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability."
+                            },
+                            "help": {
+                                "markdown": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.net.formatted-template-string.formatted-template-string)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n",
+                                "text": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.net.formatted-template-string.formatted-template-string",
+                            "id": "go.lang.security.audit.net.formatted-template-string.formatted-template-string",
+                            "name": "go.lang.security.audit.net.formatted-template-string.formatted-template-string",
+                            "properties": {
+                                "precision": "high",
+                                "tags": [
+                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
+                                    "OWASP A03:2021 - Injection",
+                                    "MEDIUM confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.lang.security.audit.net.formatted-template-string.formatted-template-string"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files."
+                            },
+                            "help": {
+                                "markdown": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/html.security.audit.missing-integrity.missing-integrity)\n - [https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures)\n",
+                                "text": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files."
+                            },
+                            "helpUri": "https://semgrep.dev/r/html.security.audit.missing-integrity.missing-integrity",
+                            "id": "html.security.audit.missing-integrity.missing-integrity",
+                            "name": "html.security.audit.missing-integrity.missing-integrity",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-353: Missing Support for Integrity Check",
+                                    "OWASP A08:2021 - Software and Data Integrity Failures",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: html.security.audit.missing-integrity.missing-integrity"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "fullDescription": {
+                                "text": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file."
+                            },
+                            "help": {
+                                "markdown": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/generic.secrets.security.detected-private-key.detected-private-key)\n - [https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures)\n",
+                                "text": "Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead, store this in a separate, private file."
+                            },
+                            "helpUri": "https://semgrep.dev/r/generic.secrets.security.detected-private-key.detected-private-key",
+                            "id": "generic.secrets.security.detected-private-key.detected-private-key",
+                            "name": "generic.secrets.security.detected-private-key.detected-private-key",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-798: Use of Hard-coded Credentials",
+                                    "OWASP A07:2021 - Identification and Authentication Failures",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "8.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: generic.secrets.security.detected-private-key.detected-private-key"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "fullDescription": {
+                                "text": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls."
+                            },
+                            "help": {
+                                "markdown": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.sqli.gosql-sqli.gosql-sqli)\n - [https://golang.org/pkg/database/sql/](https://golang.org/pkg/database/sql/)\n",
+                                "text": "Detected string concatenation with a non-literal variable in a \"database/sql\" Go SQL statement. This could lead to SQL injection if the variable is user-controlled and not properly sanitized. In order to prevent SQL injection, use parameterized queries or prepared statements instead. You can use prepared statements with the 'Prepare' and 'PrepareContext' calls."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
+                            "id": "go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
+                            "name": "go.lang.security.audit.sqli.gosql-sqli.gosql-sqli",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
+                                    "OWASP A01:2017 - Injection",
+                                    "OWASP A03:2021 - Injection",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "8.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.lang.security.audit.sqli.gosql-sqli.gosql-sqli"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/)."
+                            },
+                            "help": {
+                                "markdown": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/).\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.net.xss.formatted-template-string-taint.formatted-template-string-taint)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n - [https://owasp.org/Top10/A03_2021-Injection](https://owasp.org/Top10/A03_2021-Injection)\n",
+                                "text": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/)."
+                            },
+                            "helpUri": "https://semgrep.dev/r/go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
+                            "id": "go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
+                            "name": "go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
+                            "properties": {
+                                "precision": "very-high",
+                                "tags": [
+                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
+                                    "OWASP A03:2021 - Injection",
+                                    "HIGH confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: go.net.xss.formatted-template-string-taint.formatted-template-string-taint"
                             }
                         },
                         {
@@ -2464,261 +2708,6 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object."
-                            },
-                            "help": {
-                                "markdown": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop)\n - [https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n",
-                                "text": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object."
-                            },
-                            "helpUri": "https://semgrep.dev/r/javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
-                            "id": "javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
-                            "name": "javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-915: Improperly Controlled Modification of Dynamically-Determined Object Attributes",
-                                    "OWASP A08:2021 - Software and Data Integrity Failures",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
-                            },
-                            "help": {
-                                "markdown": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/html.security.plaintext-http-link.plaintext-http-link)\n - [https://cwe.mitre.org/data/definitions/319.html](https://cwe.mitre.org/data/definitions/319.html)\n",
-                                "text": "This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS URL if possible."
-                            },
-                            "helpUri": "https://semgrep.dev/r/html.security.plaintext-http-link.plaintext-http-link",
-                            "id": "html.security.plaintext-http-link.plaintext-http-link",
-                            "name": "html.security.plaintext-http-link.plaintext-http-link",
-                            "properties": {
-                                "precision": "very-high",
-                                "tags": [
-                                    "CWE-319: Cleartext Transmission of Sensitive Information",
-                                    "OWASP A03:2017 - Sensitive Data Exposure",
-                                    "OWASP A02:2021 - Cryptographic Failures",
-                                    "HIGH confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: html.security.plaintext-http-link.plaintext-http-link"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "note"
-                            },
-                            "fullDescription": {
-                                "text": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`"
-                            },
-                            "help": {
-                                "markdown": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned)\n - [https://stackoverflow.com/a/33511811/4965](https://stackoverflow.com/a/33511811/4965)\n",
-                                "text": "To ensure reproducible builds, pin Dockerfile `FROM` commands to a specific hash. You can find the hash by running `docker pull golang` and then  specify it with `golang:alpine@sha256:<hash goes here>`"
-                            },
-                            "helpUri": "https://semgrep.dev/r/dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
-                            "id": "dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
-                            "name": "dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "best-practice"
-                                ],
-                                "security-severity": "3.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: dockerfile.audit.dockerfile-source-not-pinned.dockerfile-source-not-pinned"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data."
-                            },
-                            "help": {
-                                "markdown": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.database.string-formatted-query.string-formatted-query)\n - [https://owasp.org/Top10/A03_2021-Injection](https://owasp.org/Top10/A03_2021-Injection)\n",
-                                "text": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.database.string-formatted-query.string-formatted-query",
-                            "id": "go.lang.security.audit.database.string-formatted-query.string-formatted-query",
-                            "name": "go.lang.security.audit.database.string-formatted-query.string-formatted-query",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')",
-                                    "OWASP A01:2017 - Injection",
-                                    "OWASP A03:2021 - Injection",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.database.string-formatted-query.string-formatted-query"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct."
-                            },
-                            "help": {
-                                "markdown": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/user/session/session.go#L69)\n",
-                                "text": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
-                            "id": "go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
-                            "name": "go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute",
-                                    "OWASP A05:2021 - Security Misconfiguration",
-                                    "MEDIUM confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.gorilla.security.audit.session-cookie-missing-secure.session-cookie-missing-secure"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'."
-                            },
-                            "help": {
-                                "markdown": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n - [https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/vulnerability/xss/xss.go#L33](https://github.com/0c34/govwa/blob/139693e56406b5684d2a6ae22c0af90717e149b8/vulnerability/xss/xss.go#L33)\n",
-                                "text": "Semgrep could not determine that the argument to 'template.HTML()' is a constant. 'template.HTML()' and similar does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability. Instead, do not use this function and use 'template.Execute()'."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
-                            "id": "go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
-                            "name": "go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
-                                    "OWASP A03:2021 - Injection",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.xss.template-html-does-not-escape.unsafe-template-type"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability."
-                            },
-                            "help": {
-                                "markdown": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.audit.net.formatted-template-string.formatted-template-string)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n",
-                                "text": "Found a formatted template string passed to 'template.HTML()'. 'template.HTML()' does not escape contents. Be absolutely sure there is no user-controlled data in this template. If user data can reach this template, you may have a XSS vulnerability."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.lang.security.audit.net.formatted-template-string.formatted-template-string",
-                            "id": "go.lang.security.audit.net.formatted-template-string.formatted-template-string",
-                            "name": "go.lang.security.audit.net.formatted-template-string.formatted-template-string",
-                            "properties": {
-                                "precision": "high",
-                                "tags": [
-                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
-                                    "OWASP A03:2021 - Injection",
-                                    "MEDIUM confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.lang.security.audit.net.formatted-template-string.formatted-template-string"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this."
-                            },
-                            "help": {
-                                "markdown": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges)\n - [https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/](https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/)\n - [https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt](https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt)\n - [https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag)\n",
-                                "text": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this."
-                            },
-                            "helpUri": "https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-                            "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-                            "name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-732: Incorrect Permission Assignment for Critical Resource",
-                                    "OWASP A05:2021 - Security Misconfiguration",
-                                    "OWASP A06:2017 - Security Misconfiguration",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: yaml.docker-compose.security.no-new-privileges.no-new-privileges"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
-                            },
-                            "help": {
-                                "markdown": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp)\n - [https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\n",
-                                "text": "RegExp() called with a `a` function argument, this might allow an attacker to cause a Regular Expression Denial-of-Service (ReDoS) within your application as RegExP blocks the main thread. For this reason, it is recommended to use hardcoded regexes instead. If your regex is run on user-controlled input, consider performing input validation or use a regex checking/sanitization library such as https://www.npmjs.com/package/recheck to verify that the regex does not appear vulnerable to ReDoS."
-                            },
-                            "helpUri": "https://semgrep.dev/r/javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
-                            "id": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
-                            "name": "javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-1333: Inefficient Regular Expression Complexity",
-                                    "OWASP A05:2021 - Security Misconfiguration",
-                                    "OWASP A06:2017 - Security Misconfiguration",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: javascript.lang.security.audit.detect-non-literal-regexp.detect-non-literal-regexp"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
                                 "text": "A session cookie was detected without setting the 'Secure' flag. The 'secure' flag for cookies prevents the client from transmitting the cookie over insecure channels such as HTTP. Set the 'Secure' flag by setting 'Secure' to 'true' in the Options struct."
                             },
                             "help": {
@@ -2747,28 +2736,28 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this."
+                                "text": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely."
                             },
                             "help": {
-                                "markdown": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service)\n - [https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir](https://docs.docker.com/compose/compose-file/compose-file-v3/#domainname-hostname-ipc-mac_address-privileged-read_only-shm_size-stdin_open-tty-user-working_dir)\n - [https://blog.atomist.com/security-of-docker-kubernetes/](https://blog.atomist.com/security-of-docker-kubernetes/)\n - [https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-8-set-filesystem-and-volumes-to-read-only)\n",
-                                "text": "Service 'mitmproxy' is running with a writable root filesystem. This may allow malicious applications to download and run additional payloads, or modify container files. If an application inside a container has to save something temporarily consider using a tmpfs. Add 'read_only: true' to this service to prevent this."
+                                "markdown": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.lang.security.injection.raw-html-format.raw-html-format)\n - [https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/](https://blogtitle.github.io/robn-go-security-pearls-cross-site-scripting-xss/)\n",
+                                "text": "Detected user input flowing into a manually constructed HTML string. You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data. Use the `html/template` package which will safely render HTML instead, or inspect that the HTML is rendered safely."
                             },
-                            "helpUri": "https://semgrep.dev/r/yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-                            "id": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
-                            "name": "yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service",
+                            "helpUri": "https://semgrep.dev/r/go.lang.security.injection.raw-html-format.raw-html-format",
+                            "id": "go.lang.security.injection.raw-html-format.raw-html-format",
+                            "name": "go.lang.security.injection.raw-html-format.raw-html-format",
                             "properties": {
-                                "precision": "medium",
+                                "precision": "high",
                                 "tags": [
-                                    "CWE-732: Incorrect Permission Assignment for Critical Resource",
-                                    "OWASP A05:2021 - Security Misconfiguration",
-                                    "OWASP A06:2017 - Security Misconfiguration",
-                                    "LOW confidence",
+                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
+                                    "OWASP A03:2021 - Injection",
+                                    "MEDIUM confidence",
                                     "security"
                                 ],
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service"
+                                "text": "Semgrep Finding: go.lang.security.injection.raw-html-format.raw-html-format"
                             }
                         },
                         {
@@ -2776,19 +2765,19 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files."
+                                "text": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object."
                             },
                             "help": {
-                                "markdown": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/html.security.audit.missing-integrity.missing-integrity)\n - [https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures)\n",
-                                "text": "This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows for the browser to verify that externally hosted files (for example from a CDN) are delivered without unexpected manipulation. Without this attribute, if an attacker can modify the externally hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the base64-encoded cryptographic hash of the resource (file) you\u2019re telling the browser to fetch in the 'integrity' attribute for all externally hosted files."
+                                "markdown": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop)\n - [https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n",
+                                "text": "Possibility of prototype polluting function detected. By adding or modifying attributes of an object prototype, it is possible to create attributes that exist on every object, or replace critical attributes with malicious ones. This can be problematic if the software depends on existence or non-existence of certain attributes, or uses pre-defined attributes of object prototype (such as hasOwnProperty, toString or valueOf). Possible mitigations might be: freezing the object prototype, using an object without prototypes (via Object.create(null) ), blocking modifications of attributes that resolve to object prototype, using Map instead of object."
                             },
-                            "helpUri": "https://semgrep.dev/r/html.security.audit.missing-integrity.missing-integrity",
-                            "id": "html.security.audit.missing-integrity.missing-integrity",
-                            "name": "html.security.audit.missing-integrity.missing-integrity",
+                            "helpUri": "https://semgrep.dev/r/javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
+                            "id": "javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
+                            "name": "javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
-                                    "CWE-353: Missing Support for Integrity Check",
+                                    "CWE-915: Improperly Controlled Modification of Dynamically-Determined Object Attributes",
                                     "OWASP A08:2021 - Software and Data Integrity Failures",
                                     "LOW confidence",
                                     "security"
@@ -2796,7 +2785,7 @@
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: html.security.audit.missing-integrity.missing-integrity"
+                                "text": "Semgrep Finding: javascript.lang.security.audit.prototype-pollution.prototype-pollution-loop.prototype-pollution-loop"
                             }
                         },
                         {
@@ -2804,45 +2793,15 @@
                                 "level": "warning"
                             },
                             "fullDescription": {
-                                "text": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')."
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header."
                             },
                             "help": {
-                                "markdown": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting').\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/orgs/-/supply-chain/advisories?q=ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8)\n - [https://nvd.nist.gov/vuln/detail/CVE-2020-28483](https://nvd.nist.gov/vuln/detail/CVE-2020-28483)\n - [https://github.com/advisories/GHSA-h395-qcrw-5vmq](https://github.com/advisories/GHSA-h395-qcrw-5vmq)\n",
-                                "text": "github.com/gin-gonic/gin < 1.7.7 is vulnerable to Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')."
+                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-href.var-in-href)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss#:~:text=javascript:%20URI](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss#:~:text=javascript:%20URI)\n - [https://github.com/pugjs/pug/issues/2952](https://github.com/pugjs/pug/issues/2952)\n",
+                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. If using a relative URL, start with a literal forward slash and concatenate the URL, like this: href='/{{link}}'. You may also consider setting the Content Security Policy (CSP) header."
                             },
-                            "helpUri": "https://semgrep.dev/orgs/-/supply-chain/advisories?q=ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
-                            "id": "ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
-                            "name": "ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8",
-                            "properties": {
-                                "precision": "medium",
-                                "tags": [
-                                    "CWE-1357: Reliance on Uncontrolled Component",
-                                    "CWE-113: Improper Neutralization of CRLF Sequences in HTTP Headers ('HTTP Request/Response Splitting')",
-                                    "CWE-444: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')",
-                                    "OWASP A06:2021 - Vulnerable and Outdated Components",
-                                    "LOW confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: ssc-parity-e086ab687e09199c6e1882e804e0d34f14460ae8"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
-                            },
-                            "help": {
-                                "markdown": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.flask.security.xss.audit.template-href-var.template-href-var)\n - [https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss](https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-scripting-xss)\n - [https://content-security-policy.com/](https://content-security-policy.com/)\n",
-                                "text": "Detected a template variable used in an anchor tag with the 'href' attribute. This allows a malicious actor to input the 'javascript:' URI and is subject to cross- site scripting (XSS) attacks. Use 'url_for()' to safely generate a URL. You may also consider setting the Content Security Policy (CSP) header."
-                            },
-                            "helpUri": "https://semgrep.dev/r/python.flask.security.xss.audit.template-href-var.template-href-var",
-                            "id": "python.flask.security.xss.audit.template-href-var.template-href-var",
-                            "name": "python.flask.security.xss.audit.template-href-var.template-href-var",
+                            "helpUri": "https://semgrep.dev/r/javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
+                            "id": "javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
+                            "name": "javascript.express.security.audit.xss.mustache.var-in-href.var-in-href",
                             "properties": {
                                 "precision": "medium",
                                 "tags": [
@@ -2855,36 +2814,7 @@
                                 "security-severity": "6.0"
                             },
                             "shortDescription": {
-                                "text": "Semgrep Finding: python.flask.security.xss.audit.template-href-var.template-href-var"
-                            }
-                        },
-                        {
-                            "defaultConfiguration": {
-                                "level": "warning"
-                            },
-                            "fullDescription": {
-                                "text": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/)."
-                            },
-                            "help": {
-                                "markdown": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/).\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/go.net.xss.formatted-template-string-taint.formatted-template-string-taint)\n - [https://golang.org/pkg/html/template/#HTML](https://golang.org/pkg/html/template/#HTML)\n - [https://owasp.org/Top10/A03_2021-Injection](https://owasp.org/Top10/A03_2021-Injection)\n",
-                                "text": "Untrusted input could be used to tamper with a web page rendering, which can lead to a Cross-site scripting (XSS) vulnerability. XSS vulnerabilities occur when untrusted input executes malicious JavaScript code, leading to issues such as account compromise and sensitive information leakage. To prevent this vulnerability, validate the user input, perform contextual output encoding or sanitize the input. For more information, see: [Go XSS prevention](https://semgrep.dev/docs/cheat-sheets/go-xss/)."
-                            },
-                            "helpUri": "https://semgrep.dev/r/go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
-                            "id": "go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
-                            "name": "go.net.xss.formatted-template-string-taint.formatted-template-string-taint",
-                            "properties": {
-                                "precision": "very-high",
-                                "tags": [
-                                    "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
-                                    "OWASP A07:2017 - Cross-Site Scripting (XSS)",
-                                    "OWASP A03:2021 - Injection",
-                                    "HIGH confidence",
-                                    "security"
-                                ],
-                                "security-severity": "6.0"
-                            },
-                            "shortDescription": {
-                                "text": "Semgrep Finding: go.net.xss.formatted-template-string-taint.formatted-template-string-taint"
+                                "text": "Semgrep Finding: javascript.express.security.audit.xss.mustache.var-in-href.var-in-href"
                             }
                         },
                         {
@@ -2914,6 +2844,35 @@
                             },
                             "shortDescription": {
                                 "text": "Semgrep Finding: javascript.express.security.audit.remote-property-injection.remote-property-injection"
+                            }
+                        },
+                        {
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "fullDescription": {
+                                "text": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this."
+                            },
+                            "help": {
+                                "markdown": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this.\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges)\n - [https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/](https://raesene.github.io/blog/2019/06/01/docker-capabilities-and-no-new-privs/)\n - [https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt](https://www.kernel.org/doc/Documentation/prctl/no_new_privs.txt)\n - [https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag](https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-4-add-no-new-privileges-flag)\n",
+                                "text": "Service 'mitmproxy' allows for privilege escalation via setuid or setgid binaries. Add 'no-new-privileges:true' in 'security_opt' to prevent this."
+                            },
+                            "helpUri": "https://semgrep.dev/r/yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+                            "id": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+                            "name": "yaml.docker-compose.security.no-new-privileges.no-new-privileges",
+                            "properties": {
+                                "precision": "medium",
+                                "tags": [
+                                    "CWE-732: Incorrect Permission Assignment for Critical Resource",
+                                    "OWASP A05:2021 - Security Misconfiguration",
+                                    "OWASP A06:2017 - Security Misconfiguration",
+                                    "LOW confidence",
+                                    "security"
+                                ],
+                                "security-severity": "6.0"
+                            },
+                            "shortDescription": {
+                                "text": "Semgrep Finding: yaml.docker-compose.security.no-new-privileges.no-new-privileges"
                             }
                         }
                     ],
