@@ -21,15 +21,15 @@ jobs:
       image: returntocorp/semgrep
     steps:
     - uses: actions/checkout@v4
-    - run: semgrep ci --code --secrets --json -o semgrep.json
-    - run: python3 build_sarif_from_json.py semgrep.json
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v4
-      with:
-        name: findings.sarif
-        path: findings.sarif
+    # - run: semgrep ci --code --secrets --json -o semgrep.json
+    # - run: python3 build_sarif_from_json.py semgrep.json
+    # - name: Archive code coverage results
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: findings.sarif
+    #     path: findings.sarif
     - name: Upload SARIF to GHAS Dashboard
       uses: github/codeql-action/upload-sarif@v3
       with:
-        sarif_file: findings.sarif
+        sarif_file: semgrep.sarif
       if: always()
