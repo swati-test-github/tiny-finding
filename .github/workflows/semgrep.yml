@@ -28,4 +28,8 @@ jobs:
       with:
          name: findings.sarif
          path: findings.sarif
-    
+    - name: Upload SARIF to GHAS Dashboard
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: findings.sarif
+      if: always()
