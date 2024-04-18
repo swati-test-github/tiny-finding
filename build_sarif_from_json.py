@@ -185,7 +185,7 @@ def main():
 
     # Load findings from the specified file
     findings = load_findings(args.findings_file)
-    findings['results'] = filter_findings_results(findings)
+    # findings['results'] = filter_findings_results(findings)
     sarif = build_sarif_template()
     sarif['runs'] = build_sarif_runs(findings)
 
