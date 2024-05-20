@@ -26,13 +26,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Check SEMGREP_APP_TOKEN availability
-    - run: |
-        if [ -z "${{ secrets.SEMGREP_TOKEN }}" ]; then
-          echo "SEMGREP_APP_TOKEN is not set or accessible"
-          exit 1
-        else
-          echo "SEMGREP_APP_TOKEN is accessible"
-        fi
     - run: semgrep ci --code --secrets --json -o semgrep.json
     - run: python3 build_sarif_from_json.py semgrep.json
     - name: Archive code coverage results
